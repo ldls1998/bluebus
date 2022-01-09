@@ -4478,7 +4478,7 @@ blockquote{
 	visibility:hidden;
 	position: absolute;
 	border-radius: 50%;
-	background: #ff7550;
+	background: #2B74E8;
 }
 .tg-paymentarea .tg-accordion .tg-panel h4:hover:after{content:'';}
 .tg-paymentarea .tg-radio label:hover:after,
@@ -5228,7 +5228,7 @@ body.tg-hidescroll{overflow:hidden;}
 	z-index:1100;
 	position:fixed;
 	overflow:hidden;
-	background:#ff7753;
+	background:#2B74E8;
 }
 .loader .span {
 	top: 50%;
