@@ -4,7 +4,7 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8" />
-    <title>Inicio</title>
+    <title>Ver Bus</title>
 
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png" />
@@ -215,8 +215,8 @@
               </a>
               <ul class="submenu">
                 <li><a href="VerBuses.html">Ver bus</a></li>
-                <li><a href="AñadirBus.html">Añadir bus</a></li>
-                <li><a href="EliminaBus.html">Eliminar bus</a></li>
+                <li><a href="foundation.html">Añadir bus</a></li>
+                <li><a href="ionicons.html">Eliminar bus</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -233,175 +233,163 @@
       </div>
     </div>
     <div class="mobile-menu-overlay"></div>
+    <div class="pd-20 card-box mb-30">
+        <div class="clearfix">
+            <h4 class="text-blue h4">Step wizard</h4>
+            <p class="mb-30">jQuery Step wizard</p>
+        </div>
+        <div class="wizard-content">
+            <form class="tab-wizard wizard-circle wizard">
+                <h5>Personal Info</h5>
+                <section>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label >First Name :</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Last Name :</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email Address :</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Phone Number :</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Select City :</label>
+                                    <select class="custom-select form-control">
+                                    <option value="">Select City</option>
+                                    <option value="Amsterdam">India</option>
+                                    <option value="Berlin">UK</option>
+                                    <option value="Frankfurt">US</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Date of Birth :</label>
+                                    <input type="text" class="form-control date-picker" placeholder="Select Date">
+                                </div>
+                            </div>
+                        </div>
+                        </section>
+                        <!-- Step 2 -->
+                        <h5>Job Status</h5>
+                        <section>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Job Title :</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Company Name :</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Job Description :</label>
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Step 3 -->
+                        <h5>Interview</h5>
+                        <section>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Interview For :</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Interview Type :</label>
+                                        <select class="form-control">
+                                    <option>Normal</option>
+                                    <option>Difficult</option>
+                                    <option>Hard</option>
+                                </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Interview Date :</label>
+                                        <input type="text" class="form-control date-picker" placeholder="Select Date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Interview Time :</label>
+                                        <input class="form-control time-picker" placeholder="Select time" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Step 4 -->
+                        <h5>Remark</h5>
+                        <section>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Behaviour :</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confidance</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Result</label>
+                                        <select class="form-control">
+                                    <option>Select Result</option>
+                                    <option>Selected</option>
+                                    <option>Rejected</option>
+                                </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Comments</label>
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                </form>
+                </div>
+            </div>
 
-    <div class="main-container">
-      <div class="pd-ltr-20">
-        <div class="card-box pd-20 height-100-p mb-30">
-          <div class="row align-items-center">
-            <div class="col-md-4">
-              <img src="vendors/images/banner-img.png" alt="" />
-            </div>
-            <div class="col-md-8">
-              <h4 class="font-20 weight-500 mb-10 text-capitalize">
-                <div class="weight-600 font-30 text-blue">
-                  Bienvenido a ViajeSeguro
-                </div>
-              </h4>
-              <p class="font-18 max-width-600">
-                ViajeSeguro es la plataforma virtual más grande de venta de
-                pasajes de bus online que te permite comparar precios, horarios
-                de salidas, lugares de embarque, y tipos de servicios de
-                diferentes empresas de transporte. Nuestro sistema te permite
-                comprar tus pasajes con cualquier empresa de transporte afiliada
-                a ViajeSeguro. 130 empresas ya han gestionado sus pasajes con
-                nosotros.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-3 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="progress-data">
-                  <div id="chart"></div>
-                </div>
-                <div class="widget-data">
-                  <div class="h4 mb-0">2022</div>
-                  <div class="weight-600 font-14">Usuarios nuevos</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="progress-data">
-                  <div id="chart2"></div>
-                </div>
-                <div class="widget-data">
-                  <div class="h4 mb-0">400</div>
-                  <div class="weight-600 font-14">Clientes satisfechos</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="progress-data">
-                  <div id="chart3"></div>
-                </div>
-                <div class="widget-data">
-                  <div class="h4 mb-0">130</div>
-                  <div class="weight-600 font-14">Empresas satisfechas</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="progress-data">
-                  <div id="chart4"></div>
-                </div>
-                <div class="widget-data">
-                  <div class="h4 mb-0">$6060</div>
-                  <div class="weight-600 font-14">Calificación</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-8 mb-30">
-            <div class="card-box height-100-p pd-20">
-              <h2 class="h4 mb-20">Actividad</h2>
-              <div id="chart5"></div>
-            </div>
-          </div>
-          <div class="col-xl-4 mb-30">
-            <div class="card-box height-100-p pd-20">
-              <h2 class="h4 mb-20">Objetivos</h2>
-              <div id="chart6"></div>
-            </div>
-          </div>
-        </div>
-        <div class="card-box mb-30">
-          <h2 class="h4 pd-20">Viajes ofertados</h2>
-          <table class="data-table table nowrap">
-            <thead>
-              <tr>
-                <th class="table-plus datatable-nosort">Viaje</th>
-                <th>Nombre</th>
-                <th>Hora de Salida</th>
-                <th>Hora de Llegada</th>
-                <th>Precio</th>
-                <th>Destino</th>
-                <th class="datatable-nosort"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="table-plus">
-                  <img
-                    src="vendors/images/mancora.jpg"
-                    width="70"
-                    height="70"
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <h5 class="font-16">Viaje #1</h5>
-                </td>
-                <td>08:00 - 12/01/2022</td>
-                <td>12:00 - 12/01/2022</td>
-                <td>S/ 80</td>
-                <td>Mancora</td>
-                <td>
-                  <div class="dropdown">
-                    <a
-                      class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                      href="#"
-                      role="button"
-                      data-toggle="dropdown"
-                    >
-                      <i class="dw dw-more"></i>
-                    </a>
-                    <div
-                      class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-                    >
-                      <a class="dropdown-item" href="#"
-                        ><i class="dw dw-eye"></i> Ver</a
-                      >
-                      <a class="dropdown-item" href="#"
-                        ><i class="dw dw-edit2"></i> Editar</a
-                      >
-                      <a class="dropdown-item" href="#"
-                        ><i class="dw dw-delete-3"></i> Eliminar</a
-                      >
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="footer-wrap pd-20 mb-20 card-box">
-          ViajeSeguro - Todos los derechos Reservados
-        </div>
-      </div>
-    </div>
-    <!-- js -->
-    <script src="vendors/scripts/core.js"></script>
-    <script src="vendors/scripts/script.min.js"></script>
-    <script src="vendors/scripts/process.js"></script>
-    <script src="vendors/scripts/layout-settings.js"></script>
-    <script src="src/plugins/apexcharts/apexcharts.min.js"></script>
-    <script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-    <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-    <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-    <script src="vendors/scripts/dashboard.js"></script>
-  </body>
+
+            <!-- js -->
+            <script src="vendors/scripts/core.js"></script>
+            <script src="vendors/scripts/script.min.js"></script>
+            <script src="vendors/scripts/process.js"></script>
+            <script src="vendors/scripts/layout-settings.js"></script>
+            <script src="src/plugins/apexcharts/apexcharts.min.js"></script>
+            <script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+            <script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+            <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+            <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+            <script src="vendors/scripts/dashboard.js"></script>
+</body>
+
 </html>
