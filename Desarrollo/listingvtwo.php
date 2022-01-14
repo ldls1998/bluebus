@@ -8,7 +8,7 @@ $newEmpresa = new Empresa($con);
 
 
 $verempresas = $newEmpresa->ver();
-echo $verempresas;
+
 
 ?>
 
