@@ -6,6 +6,12 @@ class Cliente extends Usuario {
     private $apellido;
     private $dni;
     private $edad;
+    private $con;
+
+    function __construct($con){
+        $this->con=$con;
+    }
+
 		
 	function Cliente($usuario,$contraseña,$nombre,$apellido,$dni,$edad) {
 		parent::__construct($usuario,$contraseña);
