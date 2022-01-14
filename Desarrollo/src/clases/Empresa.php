@@ -62,4 +62,30 @@ class Empresa extends Usuario {
             return $consulta->execute();
         }
    }
+
+   function verempresas(){
+
+  $consulta = $this->con->prepare("SELECT * FROM empresa");
+   $consulta->execute();
+   $empresas = $consulta->fetchAll(PDO::FETCH_ASSOC);
+   return $empresas;
+  
+
+   }
+   function verdatosempresa($n){
+
+    $consulta = $this->con->prepare("SELECT * FROM empresa WHERE nombre = :nombre");
+    $consulta->bindParam(":nombre",$n);
+   
+    $consulta->execute();
+    
+    if($consulta->rowCount()== 1){//si se encuentra empresa con ese nombre
+        return  $consulta->execute();
+    }
+    else{
+        return false;
+    }
+
+   }
+
 ?>

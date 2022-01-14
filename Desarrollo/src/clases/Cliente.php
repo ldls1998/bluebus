@@ -5,7 +5,7 @@ class Cliente extends Usuario {
     private $nombre;
     private $apellido;
     private $dni;
-    private $edad;
+    private $usuario;
     private $con;
 
     function __construct($con){
@@ -13,12 +13,12 @@ class Cliente extends Usuario {
     }
 
 		
-	function Cliente($usuario,$contraseña,$nombre,$apellido,$dni,$edad) {
-		parent::__construct($usuario,$contraseña);
+	function Cliente($usuario,$nombre,$apellido,$dni) {
+		parent::__construct($usuario);
 		$this->nombre = $nombre;
         $this->apellido = $apellidos;
         $this->dni = $dni;
-        $this->edad = $edad;
+        $this->usuario = $edad;
 	}
 
 	function  setnombre($nombre) {
@@ -33,17 +33,54 @@ class Cliente extends Usuario {
 		$this->nombre = $nombre;
 	}
 
-	function  setapellido() {
+	function  getapellido() {
 		return $this->apellido;
 	}
 	
-    function  setnombre($dni) {
+    function  setdni($dni) {
 		$this->dni = $dni;
 	}
 
-	function  getedad() {
-		return $this->edad;
+	function  getdni() {
+		return $this->dni;
 	}
+
+    
+    function  setusuario($usuario) {
+		$this->usuario = $usuario;
+	}
+
+	function  getusuario() {
+		return $this->usuario;
+
+    function registrarcliente($usuario,$contraseña,$nombre,$apellido,$dni){
+
+        $r = $this->registrar($usuario,$contrasenia);
+         if($r){
+            $b = $this->insertarcliente($usuario,$nombre,$apellido,$dni);
+            if($b){
+                return true;
+             }
+             else{
+               return false;
+             }
+         }
+         else{
+           return false;
+         }
+        }
+    
+        function insertarcliente($u,$n,$a,$d){
+    
+                
+                $consulta = $this->con->prepare("INSERT INTO cliente (usuario,nombre,apellido,dni) VALUES (:usuario,:nombre,:apellido,:dni)");
+                $consulta->bindParam(":usuario",$u);
+                $consulta->bindParam(":nombre",$n);
+                $consulta->bindParam(":apellido",$a);
+                $consulta->bindParam(":dni",$d);
+                return $consulta->execute();
+            }
+       }
 	
    }
 ?>
