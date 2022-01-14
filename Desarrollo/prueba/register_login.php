@@ -10,14 +10,13 @@ if(isset($_POST['Registro'])) {
   $contraseña = $_POST['contraseña'];
 
   $listo = $newUsuario->registrar($usuario,$contraseña);
-
-
+  
   if ($listo){
-  echo 'salio bien';
-  }
-  else{
-    echo':c';
-  }
+    header('Location: ../indexv3.php');
+    }
+    else{
+      echo 'fallo';
+    }
 }
 
 if(isset($_POST['Iniciarsesion'])) {
@@ -28,10 +27,10 @@ if(isset($_POST['Iniciarsesion'])) {
 
 
   if ($listo){
-  echo 'accede';
+    header('Location: ../indexv3.php');
   }
   else{
-    echo'no accede';
+   echo 'no accede';
   }
 }
 
@@ -61,59 +60,58 @@ if(isset($_POST['Iniciarsesion'])) {
             <h2 class="title">Iniciar sesión</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" name="usuario" />
+              <input type="text" placeholder="Username" name="usuario" id="usuario"/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" name="contraseña"/>
+              <input type="password" placeholder="Password" name="contraseña" id="contraseña"/>
             </div>
-            <input type="submit" value="Acceder" class="btn solid" name="Iniciarsesion" />
-           
-           
-          </form>
-
-          <form action="register_login.php" method="POST" class="sign-up-form">
-            <h2 class="title">Registrarse</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Usuario" name="usuario"/>
-            </div>
-           
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Contraseña" name="contraseña"/>
-            </div>
-           
-            <input type="submit" class="btn" value="Regitrarse" name="Registro" />
+            <input type="submit" value="Acceder" class="btn solid" name="Iniciarsesion" id="Iniciar" />
            
           
           </form>
+
+          <form action="register_login.php" method="POST" class="sign-up-form formulario">
+            <h2 class="title">Registrarse</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Usuario" name="usuario" id="usuario"/>
+            </div>
+           
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Contraseña" name="contraseña" id="contraseña"/>
+            </div>
+           
+            <input type="submit" class="btn" value="Regitrarse" name="Registro" id="Registrar" />
+           
+            
+          </form>
         </div>
       </div>
-
+      
       <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
-            <h3>New here ?</h3>
+            <h3>No tienes una cuenta?</h3>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid!
+              Crea una y .....
             </p>
             <button class="btn transparent" id="sign-up-btn">
-              Sign up
+              Registrarse
             </button>
           </div>
           <img src="img/login.svg" class="image" alt="" />
         </div>
         <div class="panel right-panel">
           <div class="content">
-            <h3>One of us ?</h3>
+            <h3>Ya tienes una cuenta ?</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
               laboriosam ad deleniti.
             </p>
             <button class="btn transparent" id="sign-in-btn">
-              Sign in
+              Inicia sesión
             </button>
           </div>
           <img src="img/signup.svg" class="image" alt="" />
@@ -122,5 +120,14 @@ if(isset($_POST['Iniciarsesion'])) {
     </div>
 
     <script src="app.js"></script>
+
+
+        <!--Fotter-->
+         <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js?v=<?php echo time(); ?>" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- FontAwesome para iconos -->
+        <script src="https://kit.fontawesome.com/57888ec9eb.js?v=<?php echo time(); ?>" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11?v=<?php echo time(); ?>"></script>
+   
   </body>
 </html>
