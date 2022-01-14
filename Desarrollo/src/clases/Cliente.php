@@ -7,7 +7,7 @@ class Cliente extends Usuario {
     private $dni;
     private $edad;
 		
-	function Estudiante($usuario,$contraseña,$nombre,$apellido,$dni,$edad) {
+	function Cliente($usuario,$contraseña,$nombre,$apellido,$dni,$edad) {
 		parent::__construct($usuario,$contraseña);
 		$this->nombre = $nombre;
         $this->apellido = $apellidos;

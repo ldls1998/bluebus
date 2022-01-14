@@ -6,7 +6,7 @@ class Cliente extends Usuario {
     private $ruc;
     
 		
-	function Estudiante($usuario,$contraseña,$nombre,$ruc) {
+	function Empresa($usuario,$contraseña,$nombre,$ruc) {
 		parent::__construct($usuario,$contraseña);
 		$this->nombre = $nombre;
         $this->ruc = $ruc;
