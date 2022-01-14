@@ -1,8 +1,9 @@
 <?php
 include_once("../src/conexion.php");
 include_once("../src/clases/Empresa.php");
-
+include_once("../src/clases/Usuario.php");
 $newEmpresa = new Empresa($con);
+$newUsuario = new Usuario($con);
 
 /*SOLO CREA USUARIO EMPRESA*/
 if(isset($_POST['Registro'])) {

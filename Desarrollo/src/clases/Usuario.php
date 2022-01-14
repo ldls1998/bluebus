@@ -22,13 +22,12 @@ class Usuario{
         
         
         $consulta = $this->con->prepare("SELECT * FROM usuario WHERE usuario = :usuario AND contrasenia=:contrasenia");
-        
-       
+
         $consulta->bindParam(":usuario",$usuario);
         $consulta->bindParam(":contrasenia",$contrasenia);
         $consulta->execute();
         
-        if($consulta->rowCount()== 1){
+        if($consulta->rowCount()== 1){//si es usuario empresa
             return true;
         }
         else{
@@ -37,8 +36,10 @@ class Usuario{
 
         
        }
+
     private function insertarDB($u, $c){
         $consulta = $this->con->prepare("INSERT INTO usuario (usuario,contrasenia) VALUES (:usuario,:contrasenia)");
+        
         
        
         $consulta->bindParam(":usuario",$u);
