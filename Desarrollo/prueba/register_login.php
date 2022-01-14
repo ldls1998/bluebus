@@ -1,18 +1,22 @@
 <?php
 include_once("../src/conexion.php");
+include_once("../src/clases/Empresa.php");
 include_once("../src/clases/Usuario.php");
-
+$newEmpresa = new Empresa($con);
 $newUsuario = new Usuario($con);
 
-/*SOLO CREA USUARIO*/
+/*SOLO CREA USUARIO EMPRESA*/
 if(isset($_POST['Registro'])) {
   $usuario = $_POST['usuario'];
   $contraseña = $_POST['contraseña'];
-
-  $listo = $newUsuario->registrar($usuario,$contraseña);
+  $nombre = $_POST['nombre'];
+  $ruc = $_POST['ruc'];
+ 
+  
+  $listo = $newEmpresa->registrarempresa($usuario,$contraseña,$nombre,$ruc);
   
   if ($listo){
-    header('Location: ../indexv3.php');
+    echo 'registro';
     }
     else{
       echo 'fallo';
@@ -24,7 +28,6 @@ if(isset($_POST['Iniciarsesion'])) {
   $contraseña = $_POST['contraseña'];
 
   $listo = $newUsuario->iniciar($usuario,$contraseña);
-
 
   if ($listo){
     header('Location: ../indexv3.php');
@@ -80,10 +83,19 @@ if(isset($_POST['Iniciarsesion'])) {
            
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Contraseña" name="contraseña" id="contraseña"/>
+              <input type="password" placeholder="Contraseña" name="contraseña"/>
             </div>
-           
-            <input type="submit" class="btn" value="Regitrarse" name="Registro" id="Registrar" />
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Nombre" name="nombre"/>
+            </div>
+
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="RUC" name="ruc"/>
+            </div>
+
+            <input type="submit" class="btn" value="Regitrarse" name="Registro"/>
            
             
           </form>
