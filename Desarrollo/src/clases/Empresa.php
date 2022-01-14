@@ -61,17 +61,17 @@ class Empresa extends Usuario {
     
             return $consulta->execute();
         }
-   }
 
-   function verempresas(){
 
-  $consulta = $this->con->prepare("SELECT * FROM empresa");
+  function ver(){
+
+   $consulta = $this->con->prepare("SELECT * FROM empresa");
    $consulta->execute();
    $empresas = $consulta->fetchAll(PDO::FETCH_ASSOC);
    return $empresas;
   
-
    }
+
    function verdatosempresa($n){
 
     $consulta = $this->con->prepare("SELECT * FROM empresa WHERE nombre = :nombre");
@@ -87,5 +87,6 @@ class Empresa extends Usuario {
     }
 
    }
+}
 
 ?>

@@ -7,7 +7,7 @@ $newEmpresa = new Empresa($con);
 /*Visualiza datos de empresas*/
 
 
-$verempresas = $newEmpresa->verempresas();
+$verempresas = $newEmpresa->ver();
 echo $verempresas;
 
 ?>
