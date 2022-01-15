@@ -9,8 +9,6 @@ $newEmpresa = new Empresa($con);
 
 
 $verempresa = $newEmpresa->ver();
-
-
 ?>
 
 

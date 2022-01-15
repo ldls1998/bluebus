@@ -51,7 +51,7 @@ class Cliente extends Usuario {
 	}
 
 	function  getusuario() {
-		return $this->usuario;
+		return $this->usuario;}
 
     function registrarcliente($usuario,$contraseña,$nombre,$apellido,$dni){
 
@@ -81,6 +81,5 @@ class Cliente extends Usuario {
                 return $consulta->execute();
             }
        }
-	
-   }
+
 ?>

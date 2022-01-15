@@ -1,3 +1,53 @@
+<?php
+//clase conexión
+include_once("src/conexion.php");
+//clase usuario
+
+include_once("src/clases/Usuario.php");
+
+
+
+$newUsuario = new Usuario($con);
+
+
+if(isset($_POST['acceder'])) {
+  $tipo = $_POST['tipo'];
+  $usuario = $_POST['usuario'];
+  $contraseña = $_POST['contraseña'];
+  
+  $listo = $newUsuario->iniciar($tipo,$usuario,$contraseña);
+  
+  if ($listo){
+   if($tipo=='empresa'){
+	header('Location: inicio_empresa.php');
+   	}
+	   else{
+		header('Location: inicio_cliente.php');
+	   }
+    }
+    else{
+		echo 'no se pudo acceder';
+    }
+	echo $tipo;
+}
+
+if(isset($_POST['Iniciarsesion'])) {
+  $usuario = $_POST['usuario'];
+  $contraseña = $_POST['contraseña'];
+
+  $listo = $newUsuario->iniciar($usuario,$contraseña);
+
+  if ($listo){
+    header('Location: ../indexv3.php');
+  }
+  else{
+   echo 'no accede';
+  }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,17 +106,17 @@
 						<div class="login-title">
 							<h2 class="text-center text-primary">Iniciar sesión</h2>
 						</div>
-						<form>
+						<form action="login.php" method="post" class="formulario">
 							<div class="select-role">
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
 									<label class="btn active">
-										<input type="radio" name="options" id="admin">
+										<input type="radio" name="tipo" value="cliente" id="tipo">
 										<div class="icon"><img src="vendors/images/person.svg" class="svg" alt=""></div>
 										<span>Soy</span>
 										Cliente
 									</label>
 									<label class="btn">
-										<input type="radio" name="options" id="user">
+										<input type="radio" name="tipo" value="empresa" id="tipo">
 										<div class="icon"><img src="vendors/images/briefcase.svg" class="svg" alt=""></div>
 										<span>Soy</span>
 										Empresa
@@ -74,13 +124,13 @@
 								</div>
 							</div>
 							<div class="input-group custom">
-								<input type="text" class="form-control form-control-lg" placeholder="Usuario">
+								<input type="text" class="form-control form-control-lg" placeholder="Usuario" name="usuario">
 								<div class="input-group-append custom">
 									<span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
 								</div>
 							</div>
 							<div class="input-group custom">
-								<input type="password" class="form-control form-control-lg" placeholder="**********">
+								<input type="password" class="form-control form-control-lg" placeholder="**********" name="contraseña">
 								<div class="input-group-append custom">
 									<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
 								</div>
@@ -94,11 +144,9 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="input-group mb-0">
-										<!--
-											
-											<input class="btn btn-primary btn-lg btn-block" type="submit" value="Acceder">
-										-->
-										<a class="btn btn-primary btn-lg btn-block" href="index.html">Acceder</a>
+										
+											<input class="btn btn-primary btn-lg btn-block" name="acceder" type="submit" value="Acceder">
+								
 									</div>
 									<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">o</div>
 									<div class="input-group mb-0">
