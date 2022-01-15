@@ -17,33 +17,22 @@ if(isset($_POST['acceder'])) {
   
   $listo = $newUsuario->iniciar($tipo,$usuario,$contraseña);
   
-  if ($listo){
-   if($tipo=='empresa'){
+if ($listo){
+	if ($tipo =='empresa'){
 	header('Location: inicio_empresa.php');
    	}
-	   else{
+  else{
+	  if ($tipo =='cliente'){
 		header('Location: inicio_cliente.php');
 	   }
-    }
-    else{
+	}
+}
+else{
 		echo 'no se pudo acceder';
-    }
-	echo $tipo;
+}
 }
 
-if(isset($_POST['Iniciarsesion'])) {
-  $usuario = $_POST['usuario'];
-  $contraseña = $_POST['contraseña'];
 
-  $listo = $newUsuario->iniciar($usuario,$contraseña);
-
-  if ($listo){
-    header('Location: ../indexv3.php');
-  }
-  else{
-   echo 'no accede';
-  }
-}
 
 ?>
 

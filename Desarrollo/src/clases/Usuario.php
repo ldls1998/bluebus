@@ -20,7 +20,7 @@ class Usuario{
     }
 
     
-    public function iniciar($tipo,$usuario,$contrasenia){
+    public function iniciar(String $tipo,String $usuario,String $contrasenia){
         
         $consulta = $this->con->prepare("SELECT * FROM usuario WHERE usuario = :usuario AND contrasenia=:contrasenia");
 
@@ -32,10 +32,11 @@ class Usuario{
             $success = $this->validarcuenta($tipo,$usuario);
             if($success){
                 return true;
-             }
-             else{
-               return false;
-             }
+            }
+            else{
+                return false;
+
+            }
         }
         else{
             return false;
@@ -43,21 +44,32 @@ class Usuario{
  
        }
 
-       public function validarcuenta($tipo,$usuario){
-        
-        $consulta = $this->con->prepare("SELECT * FROM :tipo WHERE usuario = :usuario");
-
-        $consulta->bindParam(":tipo",$tipo);
-        $consulta->bindParam(":usuario",$usuario);
-        $consulta->execute()
-        if($consulta->rowCount()== 1){
+       public function validarcuenta(String $tipo,String $usuario){
+       
+       if($tipo == 'empresa'){ 
+       $consulta = $this->con->prepare("SELECT * FROM empresa WHERE usuario = :usuario");
+       $consulta->bindParam(":usuario",$usuario);
+       $consulta->execute();
+       
+       if($consulta->rowCount()==1){
+           return true;
+       }
+       else{
+        return false;
+       }
+       }
+       else{
+        $consulta2 = $this->con->prepare("SELECT * FROM cliente WHERE usuario = :usuario");
+        $consulta2->bindParam(":usuario",$usuario);
+        $consulta2->execute();
+        if($consulta2->rowCount()==1){
             return true;
         }
-       else{
-           return false;
+        else{
+            return false;
+           }
+     }
        }
-    }
-
 
     private function insertarDB($u, $c){
         $consulta = $this->con->prepare("INSERT INTO usuario (usuario,contrasenia) VALUES (:usuario,:contrasenia)");
