@@ -78,9 +78,9 @@ class Empresa extends Usuario {
     $consulta->bindParam(":nombre",$n);
    
     $consulta->execute();
-    
+    $empresa = $consulta->fetchAll(PDO::FETCH_ASSOC);
     if($consulta->rowCount()== 1){//si se encuentra empresa con ese nombre
-        return  $consulta->execute();
+        return $empresa;
     }
     else{
         return false;
