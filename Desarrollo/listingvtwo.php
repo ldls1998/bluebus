@@ -1,13 +1,14 @@
 <?php
 include_once("src/conexion.php");
+
 include_once("src/clases/Empresa.php");
 
 $newEmpresa = new Empresa($con);
 
-/*Visualiza datos de empresas*/
+//Visualiza datos de empresas
 
 
-$verempresas = $newEmpresa->ver();
+$verempresa = $newEmpresa->ver();
 
 
 ?>
@@ -49,13 +50,13 @@ $verempresas = $newEmpresa->ver();
 	<![endif]-->
 	<!--************************************
 				Loader Start
-	*************************************-->
+	
 	<div class="loader">
 		<div class="span">
 			<div class="location_indicator"></div>
 		</div>
 	</div>
-	<!--************************************
+	
 				Loader End
 	*************************************-->
 	<!--************************************
@@ -457,7 +458,14 @@ $verempresas = $newEmpresa->ver();
 									<h2>Europe Tours</h2>
 								</div>
 								<div class="clearfix"></div>
+								
+								
 								<div class="row">
+									<?php 
+									
+									foreach ($verempresa as $empresa)
+										{                
+									?>
 									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 										<div class="tg-trendingtrip">
 											<figure>
@@ -465,18 +473,14 @@ $verempresas = $newEmpresa->ver();
 													<img src="images/tours/img-19.jpg" alt="image destinations">
 													<div class="tg-hover">
 														<span class="tg-stars"><span></span></span>
-														<span class="tg-tourduration">7 Days</span>
-														<span class="tg-locationname">Paris</span>
-														<div class="tg-pricearea">
-															<span>from</span>
-															<h4>$600</h4>
-														</div>
+														<span class="tg-locationname">----</span>
+													
 													</div>
 												</a>
 											</figure>
 											<div class="tg-populartourcontent">
 												<div class="tg-populartourtitle">
-													<h3><a href="tourbookingdetail.html">City Tours in Europe, Paris</a></h3>
+													<h3><a href="tourbookingdetail.html"><?php echo $empresa['nombre'];?></a></h3>
 												</div>
 												<div class="tg-description">
 													<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
@@ -484,224 +488,18 @@ $verempresas = $newEmpresa->ver();
 											</div>
 										</div>
 									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-trendingtrip">
-											<figure>
-												<a href="tourbookingdetail.html">
-													<img src="images/tours/img-20.jpg" alt="image destinations">
-													<div class="tg-hover">
-														<span class="tg-stars"><span></span></span>
-														<span class="tg-tourduration">7 Days</span>
-														<span class="tg-locationname">Paris</span>
-														<div class="tg-pricearea">
-															<span>from</span>
-															<h4>$600</h4>
-														</div>
-													</div>
-												</a>
-											</figure>
-											<div class="tg-populartourcontent">
-												<div class="tg-populartourtitle">
-													<h3><a href="tourbookingdetail.html">Best of Canada Tours and Travel</a></h3>
-												</div>
-												<div class="tg-description">
-													<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-trendingtrip">
-											<figure>
-												<a href="tourbookingdetail.html">
-													<img src="images/tours/img-21.jpg" alt="image destinations">
-													<div class="tg-hover">
-														<span class="tg-stars"><span></span></span>
-														<span class="tg-tourduration">7 Days</span>
-														<span class="tg-locationname">Paris</span>
-														<div class="tg-pricearea">
-															<span>from</span>
-															<h4>$600</h4>
-														</div>
-													</div>
-												</a>
-											</figure>
-											<div class="tg-populartourcontent">
-												<div class="tg-populartourtitle">
-													<h3><a href="tourbookingdetail.html">Italy – 3 Days in Rome, Golden Gate</a></h3>
-												</div>
-												<div class="tg-description">
-													<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-trendingtrip">
-											<figure>
-												<a href="javascript:void(0);">
-													<img src="images/tours/img-22.jpg" alt="image destinations">
-													<div class="tg-hover">
-														<span class="tg-stars"><span></span></span>
-														<span class="tg-tourduration">7 Days</span>
-														<span class="tg-locationname">Paris</span>
-														<div class="tg-pricearea">
-															<span>from</span>
-															<h4>$600</h4>
-														</div>
-													</div>
-												</a>
-											</figure>
-											<div class="tg-populartourcontent">
-												<div class="tg-populartourtitle">
-													<h3><a href="javascript:void(0);">City Tours in Europe, Paris</a></h3>
-												</div>
-												<div class="tg-description">
-													<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-trendingtrip">
-											<figure>
-												<a href="javascript:void(0);">
-													<img src="images/tours/img-23.jpg" alt="image destinations">
-													<div class="tg-hover">
-														<span class="tg-stars"><span></span></span>
-														<span class="tg-tourduration">7 Days</span>
-														<span class="tg-locationname">Paris</span>
-														<div class="tg-pricearea">
-															<span>from</span>
-															<h4>$600</h4>
-														</div>
-													</div>
-												</a>
-											</figure>
-											<div class="tg-populartourcontent">
-												<div class="tg-populartourtitle">
-													<h3><a href="javascript:void(0);">Best of Canada Tours and Travel</a></h3>
-												</div>
-												<div class="tg-description">
-													<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-trendingtrip">
-											<figure>
-												<a href="javascript:void(0);">
-													<img src="images/tours/img-24.jpg" alt="image destinations">
-													<div class="tg-hover">
-														<span class="tg-stars"><span></span></span>
-														<span class="tg-tourduration">7 Days</span>
-														<span class="tg-locationname">Paris</span>
-														<div class="tg-pricearea">
-															<span>from</span>
-															<h4>$600</h4>
-														</div>
-													</div>
-												</a>
-											</figure>
-											<div class="tg-populartourcontent">
-												<div class="tg-populartourtitle">
-													<h3><a href="javascript:void(0);">Italy – 3 Days in Rome, Golden Gate</a></h3>
-												</div>
-												<div class="tg-description">
-													<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-trendingtrip">
-											<figure>
-												<a href="javascript:void(0);">
-													<img src="images/tours/img-25.jpg" alt="image destinations">
-													<div class="tg-hover">
-														<span class="tg-stars"><span></span></span>
-														<span class="tg-tourduration">7 Days</span>
-														<span class="tg-locationname">Paris</span>
-														<div class="tg-pricearea">
-															<span>from</span>
-															<h4>$600</h4>
-														</div>
-													</div>
-												</a>
-											</figure>
-											<div class="tg-populartourcontent">
-												<div class="tg-populartourtitle">
-													<h3><a href="javascript:void(0);">City Tours in Europe, Paris</a></h3>
-												</div>
-												<div class="tg-description">
-													<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-trendingtrip">
-											<figure>
-												<a href="javascript:void(0);">
-													<img src="images/tours/img-26.jpg" alt="image destinations">
-													<div class="tg-hover">
-														<span class="tg-stars"><span></span></span>
-														<span class="tg-tourduration">7 Days</span>
-														<span class="tg-locationname">Paris</span>
-														<div class="tg-pricearea">
-															<span>from</span>
-															<h4>$600</h4>
-														</div>
-													</div>
-												</a>
-											</figure>
-											<div class="tg-populartourcontent">
-												<div class="tg-populartourtitle">
-													<h3><a href="javascript:void(0);">Best of Canada Tours and Travel</a></h3>
-												</div>
-												<div class="tg-description">
-													<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-trendingtrip">
-											<figure>
-												<a href="javascript:void(0);">
-													<img src="images/tours/img-27.jpg" alt="image destinations">
-													<div class="tg-hover">
-														<span class="tg-stars"><span></span></span>
-														<span class="tg-tourduration">7 Days</span>
-														<span class="tg-locationname">Paris</span>
-														<div class="tg-pricearea">
-															<span>from</span>
-															<h4>$600</h4>
-														</div>
-													</div>
-												</a>
-											</figure>
-											<div class="tg-populartourcontent">
-												<div class="tg-populartourtitle">
-													<h3><a href="javascript:void(0);">Italy – 3 Days in Rome, Golden Gate</a></h3>
-												</div>
-												<div class="tg-description">
-													<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+									<?php 
+									}
+                                      
+									
+						
+						?>
+						</div>
 								<div class="clearfix"></div>
 								<nav class="tg-pagination">
 									<ul>
 										<li class="tg-active"><a href="javascript:void(0);">1</a></li>
-										<li><a href="javascript:void(0);">2</a></li>
-										<li><a href="javascript:void(0);">3</a></li>
-										<li><a href="javascript:void(0);">4</a></li>
-										<li class="tg-nextpage"><a href="javascript:void(0);"><i class="fa fa-angle-right"></i></a></li>
-									</ul>
+										</ul>
 								</nav>
 							</div>
 						</div>
