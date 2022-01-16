@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<!-- Basic Page Info -->
-<meta charset="utf-8">
-<title>Viajeseguro | Inicia sesión </title>
+	<!-- Basic Page Info -->
+	<meta charset="utf-8">
+	<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
 
-<!-- Site favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="vendors/images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="16x16" href="vendors/images/apple-touch-icon.png">
+	<!-- Site favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png">
 
-<!-- Mobile Specific Metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,7 +19,6 @@
 	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
-
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -32,18 +30,17 @@
 		gtag('config', 'UA-119386393-1');
 	</script>
 </head>
-
 <body>
 	<div class="login-header box-shadow">
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
 				<a href="login.html">
-					<img src="vendors/images/logo.png" alt="">
+					<img src="vendors/images/deskapp-logo.svg" alt="">
 				</a>
 			</div>
 			<div class="login-menu">
 				<ul>
-					<li><a href="login.html">Acceder</a></li>
+					<li><a href="login.html">Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -52,19 +49,25 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-md-6">
-					<img src="vendors/images/forgot-password.svg" alt="">
+					<img src="vendors/images/forgot-password.png" alt="">
 				</div>
 				<div class="col-md-6">
 					<div class="login-box bg-white box-shadow border-radius-10">
 						<div class="login-title">
-							<h2 class="text-center text-primary">Olvidé mi contraseña</h2>
+							<h2 class="text-center text-primary">Reset Password</h2>
 						</div>
-						<h6 class="mb-20">Ingresa tu correo electrónico para reestablecer tu contraseña</h6>
+						<h6 class="mb-20">Enter your new password, confirm and submit</h6>
 						<form>
 							<div class="input-group custom">
-								<input type="text" class="form-control form-control-lg" placeholder="Email">
+								<input type="text" class="form-control form-control-lg" placeholder="New Password">
 								<div class="input-group-append custom">
-									<span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+									<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
+								</div>
+							</div>
+							<div class="input-group custom">
+								<input type="text" class="form-control form-control-lg" placeholder="Confirm New Password">
+								<div class="input-group-append custom">
+									<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
 								</div>
 							</div>
 							<div class="row align-items-center">
@@ -74,15 +77,7 @@
 											use code for form submit
 											<input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">
 										-->
-										<a class="btn btn-primary btn-lg btn-block" href="reset-password.php">Enviar</a>
-									</div>
-								</div>
-								<div class="col-2">
-									<div class="font-16 weight-600 text-center" data-color="#707373">O</div>
-								</div>
-								<div class="col-5">
-									<div class="input-group mb-0">
-										<a class="btn btn-outline-primary btn-lg btn-block" href="login.html">Ingresar</a>
+										<a class="btn btn-primary btn-lg btn-block" href="index.html">Submit</a>
 									</div>
 								</div>
 							</div>
@@ -98,5 +93,4 @@
 	<script src="vendors/scripts/process.js"></script>
 	<script src="vendors/scripts/layout-settings.js"></script>
 </body>
-
 </html>
