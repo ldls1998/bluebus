@@ -113,7 +113,7 @@ if(isset($_POST['Registroempresa'])) {
             <button class="btn transparent" id="sign-up-btn">
               Registrarse
             </button>
-            <button class="btn transparent" href="">
+            <button class="btn transparent" href="login.php">
               Iniciar sesión
             </button>
           </div>
@@ -122,13 +122,13 @@ if(isset($_POST['Registroempresa'])) {
         <div class="panel right-panel">
           <div class="content">
             <h3>Crea una cuenta como usuario viajero</h3>
-            <p>Y inicia una nueva aventura junto a nosotros
+            <p>E inicia una nueva aventura junto a nosotros
             
             </p>
             <button class="btn transparent" id="sign-in-btn">
               Registrarse
             </button>
-            <button class="btn transparent" href="">
+            <button class="btn transparent" href="login.php">
               Iniciar sesión
             </button>
           </div>
