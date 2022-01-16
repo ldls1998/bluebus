@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Destinos</title>
+	<title>Añadir Personal</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -209,11 +209,6 @@
               <ul class="submenu">
                 <li><a href="personal.html">Ver personal</a></li>
                 <li><a href="añadirPersonal.html">Añadir persona</a></li>
-                <li>
-                  <a href="ui-cards-hover.html"
-                    >Eliminar registro de personal</a
-                  >
-                </li>
               </ul>
             </li>
             <li class="dropdown">
@@ -249,13 +244,13 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<div class="title">
-								<h4>Modificar Destino</h4>
+								<h4>Añadir Personal</h4>
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="empresa.html">Inicio</a></li>
-									<li class="breadcrumb-item"><a href="destinos.html">Ver Destino</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Modificar Destino</li>
+									<li class="breadcrumb-item"><a href="destinos.html">Personal</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Añadir Personal</li>
 								</ol>
 							</nav>
 						</div>
@@ -263,10 +258,10 @@
 					</div>
 				</div>
 				<!-- Default Basic Forms Start -->
-				<div class="pd-20 card-box mb-30">
+        <div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Datos del Destino</h4>
+							<h4 class="text-blue h4">Datos de la Persona</h4>
 						</div>
 
 					</div>
@@ -274,39 +269,32 @@
 					<div class="form-group row">
 						<label class="col-sm-12 col-md-2 col-form-label">Nombre: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="nombre" class="form-control" value="Viaje #1" readonly>
+							<input id="nombre" class="form-control" placeholder="José">
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Hora de Salida: </label>
+						<label class="col-sm-12 col-md-2 col-form-label">Apellido: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="horaSalida" class="form-control" type="date" value="2021-05-17" readonly>
+							<input id="apellido" class="form-control" placeholder="Cardona">
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Hora de Llegada: </label>
+						<label class="col-sm-12 col-md-2 col-form-label">ID: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="horaLlegada" class="form-control" type="date" value="2021-05-18" readonly>
+							<input id="id" class="form-control" placeholder="2021JC01">
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Precio: </label>
+						<label class="col-sm-12 col-md-2 col-form-label">DNI: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="precio" class="form-control" value="S/350" readonly>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Destino: </label>
-						<div class="col-sm-12 col-md-10">
-							<input id="destino" class="form-control" value="Mancora" readonly>
+							<input id="dni" class="form-control" placeholder="07232123">
 						</div>
 					</div>
           <div>
-            <input class="btn btn-primary" type="submit" value="Modificar">
+            <input class="btn btn-primary" type="submit" value="Añadir">
         </div>
         
 		</div>

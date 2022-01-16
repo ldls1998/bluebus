@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<!-- Basic Page Info -->
-	<meta charset="utf-8">
-	<title>Destinos</title>
+  <head>
+    <!-- Basic Page Info -->
+    <meta charset="utf-8" />
+    <title>Destinos</title>
 
-	<!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png">
+    <!-- Site favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="vendors/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="vendors/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="vendors/images/favicon-16x16.png"
+    />
 
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Mobile Specific Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
 
-	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
-	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="src/plugins/fancybox/dist/jquery.fancybox.css">
-	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="vendors/styles/core.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendors/styles/icon-font.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/plugins/fancybox/dist/jquery.fancybox.css"
+    />
+    <link rel="stylesheet" type="text/css" href="vendors/styles/style.css" />
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-		gtag('config', 'UA-119386393-1');
-	</script>
-	<!-- fancybox Popup css -->
-</head>
+      gtag("config", "UA-119386393-1");
+    </script>
+    <!-- fancybox Popup css -->
+  </head>
 
   <body>
     <div class="header">
@@ -103,9 +136,7 @@
         </div>
       </div>
       <div class="header-right">
-        <div class="dashboard-setting user-notification">
-
-        </div>
+        <div class="dashboard-setting user-notification"></div>
         <div class="user-notification">
           <div class="dropdown">
             <a
@@ -169,7 +200,6 @@
       </div>
     </div>
 
-
     <div class="left-side-bar">
       <div class="brand-logo">
         <a href="empresa.html">
@@ -196,8 +226,7 @@
               </a>
               <ul class="submenu">
                 <li><a href="destinos.html">Ver destino</a></li>
-                <li><a href="advanced-components.html">Añadir destino</a></li>
-                <li><a href="form-wizard.html">Eliminar destino</a></li>
+                <li><a href="añadirDestino.html">Añadir destino</a></li>
               </ul>
             </li>
 
@@ -208,13 +237,8 @@
                 ><span class="mtext"> Personal </span>
               </a>
               <ul class="submenu">
-                <li><a href="ui-buttons.html">Ver personal</a></li>
-                <li><a href="ui-cards.html">Añadir persona</a></li>
-                <li>
-                  <a href="ui-cards-hover.html"
-                    >Eliminar registro de personal</a
-                  >
-                </li>
+                <li><a href="personal.html">Ver personal</a></li>
+                <li><a href="añadirPersonal.html">Añadir persona</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -242,56 +266,73 @@
       </div>
     </div>
 
-	<div class="main-container">
-		<div class="pd-ltr-20 xs-pd-20-10">
-			<div class="min-height-200px">
-				<div class="page-header">
-					<div class="row">
-						<div class="col-md-12 col-sm-12">
-							<div class="title">
-								<h4>Destinos</h4>
-							</div>
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="empresa.html">Inicio</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Destinos</li>
-								</ol>
-							</nav>
-						</div>
-					</div>
-				</div>
-				<div class="gallery-wrap">
-					<ul class="row">
-						<li class="col-lg-4 col-md-6 col-sm-12">
-							<div class="da-card box-shadow">
-								<div class="da-card-photo">
-									<img src="vendors/images/mancora.jpg" alt="mancora">
-									<div class="da-overlay">
-										<div class="da-social">
-										<h5 class="mb-10 color-white pd-20">Mancora</h5>
-											<ul class="clearfix">
-												<li><a href="vendors/images/mancora.jpg" data-fancybox="images"><i class="fa fa-picture-o"></i></a></li>
-												<li><a href="/Desarrollo/modificarDestino.html"><i class="fa fa-link"></i></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="footer-wrap pd-20 mb-20 card-box">
-				ViajeSeguro - Todos los derechos Reservados
-			</div>
-		</div>
-	</div>
-	<!-- js -->
-	<script src="vendors/scripts/core.js"></script>
-	<script src="vendors/scripts/script.min.js"></script>
-	<script src="vendors/scripts/process.js"></script>
-	<script src="vendors/scripts/layout-settings.js"></script>
-	<!-- fancybox Popup Js -->
-	<script src="src/plugins/fancybox/dist/jquery.fancybox.js"></script>
-</body>
+    <div class="main-container">
+      <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+          <div class="page-header">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="title">
+                  <h4>Destinos</h4>
+                </div>
+                <nav aria-label="breadcrumb" role="navigation">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="empresa.html">Inicio</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Destinos
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-wrap">
+            <ul class="row">
+              <li class="col-lg-4 col-md-6 col-sm-12">
+                <div class="da-card box-shadow">
+                  <div class="da-card-photo">
+                    <img src="vendors/images/mancora.jpg" alt="mancora" />
+                    <div class="da-overlay">
+                      <div class="da-social">
+                        <h5 class="mb-10 color-white pd-20">Mancora</h5>
+                        <ul class="clearfix">
+                          <li>
+                            <a
+                              href="vendors/images/mancora.jpg"
+                              data-fancybox="images"
+                              ><i class="fa fa-picture-o"></i
+                            ></a>
+                          </li>
+                          <li>
+                            <a href="modificarDestino.html"
+                              ><i class="fa fa-link"></i
+                            ></a>
+                          </li>
+                          <li>
+                            <a href="#"><i class="dw dw-delete-3"></i></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-wrap pd-20 mb-20 card-box">
+          ViajeSeguro - Todos los derechos Reservados
+        </div>
+      </div>
+    </div>
+    <!-- js -->
+    <script src="vendors/scripts/core.js"></script>
+    <script src="vendors/scripts/script.min.js"></script>
+    <script src="vendors/scripts/process.js"></script>
+    <script src="vendors/scripts/layout-settings.js"></script>
+    <!-- fancybox Popup Js -->
+    <script src="src/plugins/fancybox/dist/jquery.fancybox.js"></script>
+  </body>
 </html>
