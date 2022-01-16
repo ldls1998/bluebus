@@ -79,7 +79,7 @@ else{
 			</div>
 			<div class="login-menu">
 				<ul>
-					<li><a href="register.html">Registrarse</a></li>
+					<li><a href="register.php">Registrarse</a></li>
 				</ul>
 			</div>
 		</div>

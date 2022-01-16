@@ -103,10 +103,10 @@
 						</div>
 					</div>
 					<div class="tg-navigationarea tg-headerfixed">
-						<strong class="tg-logo"><a href="index.html"><img style="width: 48%; height:48%;" src="vendors/images/logo.png" alt="company logo here"></a></strong>
+						<strong class="tg-logo"><a href="index.php"><img style="width: 48%; height:48%;" src="vendors/images/logo.png" alt="company logo here"></a></strong>
 						<div class="tg-socialsignin">
 							<div class="tg-userbox">
-								<a id="tg-btnsignin" class="tg-btn" href="login.html"><span>Iniciar Sesión</span></a>
+								<a id="tg-btnsignin" class="tg-btn" href="login.php"><span>Iniciar Sesión</span></a>
 							</div>
 						</div>
 						<nav id="tg-nav" class="tg-nav">
