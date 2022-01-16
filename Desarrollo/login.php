@@ -127,7 +127,7 @@ else{
 							<div class="row pb-30">
 								
 								<div class="col-6">
-									<div class="forgot-password"><a href="forgot-password.html">Olvidé mi contraseña</a></div>
+									<div class="forgot-password"><a href="reiniciar_contraseña.php">Olvidé mi contraseña</a></div>
 								</div>
 							</div>
 							<div class="row">
