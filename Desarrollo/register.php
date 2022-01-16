@@ -113,8 +113,8 @@ if(isset($_POST['Registroempresa'])) {
             <button class="btn transparent" id="sign-up-btn">
               Registrarse
             </button>
-            <button class="btn transparent" href="login.php">
-              Iniciar sesión
+            <button class="btn transparent" ><a style="color:white;text-decoration:none" href="login.php">
+              Iniciar sesión</a>
             </button>
           </div>
           <img src="images/login.svg" class="image" alt="" />
@@ -128,8 +128,8 @@ if(isset($_POST['Registroempresa'])) {
             <button class="btn transparent" id="sign-in-btn">
               Registrarse
             </button>
-            <button class="btn transparent" href="login.php">
-              Iniciar sesión
+            <button class="btn transparent" ><a style="color:white;text-decoration:none" href="login.php">
+              Iniciar sesión</a>
             </button>
           </div>
           <img src="images/signup.svg" class="image" alt="" />
