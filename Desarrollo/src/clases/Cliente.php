@@ -81,5 +81,19 @@ class Cliente extends Usuario {
                 return $consulta->execute();
             }
        }
-
+	
+	function editarCuenta() {
+		
+	}
+	
+	function eliminarCuenta() {
+		$consulta = $this->con->prepare("DELETE FROM cliente WHERE dni = :dni ")
+		$consulta->bindParam(":dni",$this->dni);
+		return $consulta->execute();
+	}
+	
+	function verDetallesEmpresa() {
+		
+	}
+	
 ?>
