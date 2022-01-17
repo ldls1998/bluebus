@@ -1,39 +1,106 @@
+<?php
+
+include_once("src/conexion.php");
+include_once("src/clases/Empresa.php");
+include_once("src/clases/Bus.php");
+
+if(!isset($_SESSION['usuario']) || !$_SESSION['rol']=='empresa') {
+        header("Location: login.php");
+    }
+
+$newEmpresa = new Empresa($con);
+
+
+$usuario = $_SESSION['usuario'];
+$datos_empresa = $newEmpresa->verdatosempresa($usuario);
+
+
+$newBus = new Bus($con);
+$buses = $newBus->listadodebuses($usuario);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
-<head>
-	<!-- Basic Page Info -->
-	<meta charset="utf-8">
-	<title>Añadir Destinos</title>
 
-	<!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png">
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Basic Page Info -->
+    <meta charset="utf-8" />
+    <title>Listado de buses registrados</title>
 
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Site favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="logo/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="logo/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="logo/apple-touch-icon.png"
+    />
 
-	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
-	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="src/plugins/fancybox/dist/jquery.fancybox.css">
-	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
+    <!-- Mobile Specific Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="vendors/styles/core.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendors/styles/icon-font.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/plugins/datatables/css/dataTables.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/plugins/datatables/css/responsive.bootstrap4.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="vendors/styles/style.css" />
 
-		gtag('config', 'UA-119386393-1');
-	</script>
-	<!-- fancybox Popup css -->
-</head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  <body>
+      gtag("config", "UA-119386393-1");
+    </script>
+  </head>
+<body>
+	
+
+<body class="sidebar-light header-dark" >
+<body class="sidebar-light header-dark" >
     <div class="header">
       <div class="header-left">
         <div class="menu-icon dw dw-menu"></div>
@@ -172,9 +239,9 @@
 
     <div class="left-side-bar">
       <div class="brand-logo">
-        <a href="empresa.html">
-          <img src="logo/logo.png" alt="" class="dark-logo" />
-          <img src="logo/logo.png" alt="" class="light-logo" />
+        <a href="inicio_empresa.php">
+          <img src="logo/logo.png" style="width: 97%;" class="dark-logo" />
+          
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
           <i class="ion-close-round"></i>
@@ -184,7 +251,7 @@
         <div class="sidebar-menu">
           <ul id="accordion-menu">
             <li>
-              <a href="empresa.html" class="dropdown-toggle no-arrow">
+              <a href="inicio_empresa.php" class="dropdown-toggle no-arrow">
                 <span class="micon dw dw-house-1"></span
                 ><span class="mtext">Inicio</span>
               </a>
@@ -195,8 +262,9 @@
                 ><span class="mtext">Destino</span>
               </a>
               <ul class="submenu">
-                <li><a href="destinos.html">Ver destino</a></li>
-                <li><a href="añadirDestino.html">Añadir destino</a></li>
+                <li><a href="verdestinos.php">Ver destino</a></li>
+                <li><a href="añadirdestino.php">Añadir destino</a></li>
+                <li><a href="eliminardestino.php">Eliminar destino</a></li>
               </ul>
             </li>
 
@@ -207,8 +275,14 @@
                 ><span class="mtext"> Personal </span>
               </a>
               <ul class="submenu">
-                <li><a href="personal.html">Ver personal</a></li>
-                <li><a href="añadirPersonal.html">Añadir persona</a></li>
+                <li><a href="verpersonal.php">Ver personal</a></li>
+                <li><a href="añadirpersonal.php">Añadir personal</a></li>
+                <li><a href="modificarpersonal.php">Modificar personal</a></li>
+                <li>
+                  <a href="ui-cards-hover.html"
+                    >Eliminar registro de personal</a
+                  >
+                </li>
               </ul>
             </li>
             <li class="dropdown">
@@ -217,9 +291,9 @@
                 ><span class="mtext">Buses</span>
               </a>
               <ul class="submenu">
-                <li><a href="font-awesome.html">Ver bus</a></li>
-                <li><a href="foundation.html">Añadir bus</a></li>
-                <li><a href="ionicons.html">Eliminar bus</a></li>
+                <li><a href="listadodebuses.php">Ver bus</a></li>
+                <li><a href="añadirbus.php">Añadir bus</a></li>
+                <li><a href="eliminarbus.php">Eliminar bus</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -228,7 +302,7 @@
                 ><span class="mtext">Boletos</span>
               </a>
               <ul class="submenu">
-                <li><a href="highchart.html">Ver boletos</a></li>
+                <li><a href="verboletos.php">Ver boletos</a></li>
               </ul>
             </li>
           </ul>
@@ -238,83 +312,68 @@
 	<div class="mobile-menu-overlay"></div>
 
 	<div class="main-container">
-		<div class="pd-ltr-20 xs-pd-20-10">
-			<div class="min-height-200px">
-				<div class="page-header">
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<div class="title">
-								<h4>Añadir Destino</h4>
-							</div>
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="empresa.html">Inicio</a></li>
-									<li class="breadcrumb-item"><a href="destinos.html">Destino</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Añadir Destino</li>
-								</ol>
-							</nav>
-						</div>
-
+		
+			
+				<!-- Export Datatable start -->
+				<div class="card-box mb-30">
+					<div class="pd-20">
+						<h4 class="text-blue h4">Listado de buses registrados</h4>
+					</div>
+					<div class="pb-20">
+						<table class="table hover multiple-select-row data-table-export nowrap">
+							<thead>
+								<tr>
+									<th class="table-plus datatable-nosort">ID</th>
+									<th>PLACA</th>
+									<th>CHOFER</th>
+									<th>N° Asientos</th>
+									<th>TIPO</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+							<?php 
+									if($buses){
+									foreach ($buses as $bus)
+										{                
+									?>
+								<tr>
+									<td class="table-plus"><?php echo $bus['id_bus'];?></td>
+									<td><?php echo $bus['placa'];?></td>
+									<td><?php echo $bus['N_asientos'];?></td>
+									<td><?php echo $bus['N_asientos'];?></td>
+									<td><?php echo $bus['Tipo_bus'];?></td>
+								
+								</tr>
+							<?php }}?>
+							</tbody>
+						</table>
 					</div>
 				</div>
-				<!-- Default Basic Forms Start -->
-				<div class="pd-20 card-box mb-30">
-					<div class="clearfix">
-						<div class="pull-left">
-							<h4 class="text-blue h4">Datos del Destino</h4>
-						</div>
-
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Nombre: </label>
-						<div class="col-sm-12 col-md-10">
-							<input id="nombre" class="form-control" value="Viaje #1" readonly>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Hora de Salida: </label>
-						<div class="col-sm-12 col-md-10">
-							<input id="horaSalida" class="form-control" type="date" value="2021-05-17" readonly>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Hora de Llegada: </label>
-						<div class="col-sm-12 col-md-10">
-							<input id="horaLlegada" class="form-control" type="date" value="2021-05-18" readonly>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Precio: </label>
-						<div class="col-sm-12 col-md-10">
-							<input id="precio" class="form-control" value="S/350" readonly>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Destino: </label>
-						<div class="col-sm-12 col-md-10">
-							<input id="destino" class="form-control" value="Mancora" readonly>
-						</div>
-					</div>
-          <div>
-            <input class="btn btn-primary" type="submit" value="Añadir">
-        </div>
-        
+				<!-- Export Datatable End -->
+			</div>
+			<div class="footer-wrap pd-20 mb-20 card-box">
+				Viajeseguro <a href=""> Tods los derechos reservados</a>
+			</div>
 		</div>
-    <div class="footer-wrap pd-20 mb-20 card-box">
-      ViajeSeguro - Todos los derechos Reservados
-    </div>
-  </div>
-<!-- js -->
-<script src="vendors/scripts/core.js"></script>
-<script src="vendors/scripts/script.min.js"></script>
-<script src="vendors/scripts/process.js"></script>
-<script src="vendors/scripts/layout-settings.js"></script>
-<!-- fancybox Popup Js -->
-<script src="src/plugins/fancybox/dist/jquery.fancybox.js"></script>
-</body>
+	</div>
+	<!-- js -->
+	<script src="vendors/scripts/core.js"></script>
+	<script src="vendors/scripts/script.min.js"></script>
+	<script src="vendors/scripts/process.js"></script>
+	<script src="vendors/scripts/layout-settings.js"></script>
+	<script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<!-- buttons for Export datatable -->
+	<script src="src/plugins/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+	<script src="src/plugins/datatables/js/buttons.print.min.js"></script>
+	<script src="src/plugins/datatables/js/buttons.html5.min.js"></script>
+	<script src="src/plugins/datatables/js/buttons.flash.min.js"></script>
+	<script src="src/plugins/datatables/js/pdfmake.min.js"></script>
+	<script src="src/plugins/datatables/js/vfs_fonts.js"></script>
+	<!-- Datatable Setting js -->
+	<script src="vendors/scripts/datatable-setting.js"></script></body>
 </html>

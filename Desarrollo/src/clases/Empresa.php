@@ -1,6 +1,6 @@
 <?php
 
-include("Usuario.php");
+include("Cuenta.php");
 include("Bus.php");
 class Empresa extends Usuario
 {
@@ -80,8 +80,8 @@ class Empresa extends Usuario
     function verdatosempresa($n)
     {
 
-        $consulta = $this->con->prepare("SELECT * FROM empresa WHERE nombre = :nombre");
-        $consulta->bindParam(":nombre", $n);
+        $consulta = $this->con->prepare("SELECT * FROM empresa WHERE usuario = :usuario");
+        $consulta->bindParam(":usuario", $n);
 
         $consulta->execute();
         $empresa = $consulta->fetchAll(PDO::FETCH_ASSOC);
@@ -92,3 +92,4 @@ class Empresa extends Usuario
         }
     }
 }
+?>

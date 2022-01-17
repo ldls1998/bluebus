@@ -7,6 +7,12 @@ class Bus
     private $chofer;
     private $empresa;
 
+    private $con;
+
+    function __construct($con){
+        $this->con=$con;
+    }
+
     function Bus($placa, $codigo, $chofer, $empresa)
     {
         $this->placa = $placa;
@@ -54,6 +60,45 @@ class Bus
     {
         return $this->empresa;
     }
+
+
+    function añadirbus($placa,$asientos,$empresa)
+    {
+       
+        $consulta = $this->con->prepare("INSERT INTO chofer (placa,N_asientos,empresa) VALUES (:placa,:asientos,:empresa)");
+        $consulta->bindParam(":placa", $placa);
+        $consulta->bindParam(":asientos", $asientos);
+        $consulta->bindParam(":empresa", $empresa);
+
+        return  $consulta->execute();
+    }
+
+
+    function listadodebuses($empresa)
+    {
+
+        $consulta = $this->con->prepare("SELECT * FROM bus WHERE empresa = :empresa");
+        $consulta->bindParam(":empresa", $empresa);
+        $consulta->execute();
+        
+        $bus = $consulta->fetchAll(PDO::FETCH_ASSOC);
+       
+        return $bus;}
+       
+    
+    function buscarbusporplaca($empresa, $placa)
+        {
+    
+            $consulta = $this->con->prepare("SELECT * FROM bus WHERE empresa = :empresa AND placa = :placa");
+            $consulta->bindParam(":placa", $placa);
+            $consulta->bindParam(":empresa", $empresa);
+            $consulta->execute();
+            
+            $bus = $consulta->fetchAll(PDO::FETCH_ASSOC);
+           
+            return $bus;
+        }
+           
 
     function eliminarBus($placa)
     {
@@ -104,3 +149,4 @@ class Bus
         return $consulta->execute();
     }
 }
+?>

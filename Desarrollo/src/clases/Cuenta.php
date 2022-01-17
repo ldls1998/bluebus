@@ -2,25 +2,11 @@
 
 class Usuario{
     private $con;
-    private $sqlData;
-    private $sqlData2;
+   
 
     function __construct($con){
         $this->con=$con;
-    }
-/*
-    function __construct($con, $usuario){
-        $this->con=$con;
 
-        $query = $con->prepare("SELECT FROM usuario WHERE usuario = :usuario");
-        $consulta->bindParam(":usuario",$usuario);
-        $consulta->execute();
-
-        $this->sqlData = $query->fetchAll(PDO::FETCH_ASSOC);
-    }
-*/
-    public static function accedio(){
-        return($_SESSION["usuario"]);
     }
 
 

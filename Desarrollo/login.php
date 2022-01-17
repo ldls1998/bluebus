@@ -18,13 +18,17 @@ if(isset($_POST['acceder'])) {
   $listo = $newUsuario->iniciar($tipo,$usuario,$contraseña);
   
 if ($listo){
+	session_start();
+	$_SESSION['usuario'] = $usuario;
+    $_SESSION['rol'] = $tipo;
+	
 	if ($tipo =='empresa'){
 	header('Location: inicio_empresa.php');
    	}
   else{
 	  if ($tipo =='cliente'){
-		header('Location: inicio_cliente.php');
-	   }
+	header('Location: inicio_cliente.php');
+	}
 	}
 }
 else{

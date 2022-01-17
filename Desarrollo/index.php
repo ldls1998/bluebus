@@ -125,7 +125,7 @@
 									<li><a href="destinations.html">Destinos</a></li>
 									<li class="menu-item-has-children"><a href="javascript:void(0);">Empresas</a>
 										<ul class="sub-menu">
-											<li><a href="listingtwo.html">Ver empresas</a></li>
+											<li><a href="ver_empresas.php">Ver empresas</a></li>
 											<li><a href="contactus.html">ViajeSeguro para empresas</a></li>
 										</ul>
 									</li>

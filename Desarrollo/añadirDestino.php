@@ -1,9 +1,27 @@
+<?php
+
+include_once("src/conexion.php");
+include_once("src/clases/Empresa.php");
+
+
+    if(!isset($_SESSION['usuario']) || !$_SESSION['rol']=='empresa') {
+        header("Location: login.php");
+    }
+
+$newEmpresa = new Empresa($con);
+$usuario = $_SESSION['usuario'];
+$datos_empresa = $newEmpresa->verdatosempresa($usuario);
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Modificar Personal</title>
+	<title>Añadir Destinos</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -34,6 +52,7 @@
 </head>
 
   <body>
+  <body class="sidebar-light header-dark" >
     <div class="header">
       <div class="header-left">
         <div class="menu-icon dw dw-menu"></div>
@@ -172,9 +191,9 @@
 
     <div class="left-side-bar">
       <div class="brand-logo">
-        <a href="empresa.html">
-          <img src="logo/logo.png" alt="" class="dark-logo" />
-          <img src="logo/logo.png" alt="" class="light-logo" />
+        <a href="inicio_empresa.php">
+          <img src="logo/logo.png" style="width: 97%;" class="dark-logo" />
+          
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
           <i class="ion-close-round"></i>
@@ -184,7 +203,7 @@
         <div class="sidebar-menu">
           <ul id="accordion-menu">
             <li>
-              <a href="empresa.html" class="dropdown-toggle no-arrow">
+              <a href="inicio_empresa.php" class="dropdown-toggle no-arrow">
                 <span class="micon dw dw-house-1"></span
                 ><span class="mtext">Inicio</span>
               </a>
@@ -195,8 +214,9 @@
                 ><span class="mtext">Destino</span>
               </a>
               <ul class="submenu">
-                <li><a href="destinos.html">Ver destino</a></li>
-                <li><a href="añadirDestino.html">Añadir destino</a></li>
+                <li><a href="verdestinos.php">Ver destino</a></li>
+                <li><a href="añadirdestino.php">Añadir destino</a></li>
+                <li><a href="eliminardestino.php">Eliminar destino</a></li>
               </ul>
             </li>
 
@@ -207,8 +227,14 @@
                 ><span class="mtext"> Personal </span>
               </a>
               <ul class="submenu">
-                <li><a href="personal.html">Ver personal</a></li>
-                <li><a href="añadirPersonal.html">Añadir persona</a></li>
+                <li><a href="verpersonal.php">Ver personal</a></li>
+                <li><a href="añadirpersonal.php">Añadir personal</a></li>
+                <li><a href="modificarpersonal.php">Modificar personal</a></li>
+                <li>
+                  <a href="ui-cards-hover.html"
+                    >Eliminar registro de personal</a
+                  >
+                </li>
               </ul>
             </li>
             <li class="dropdown">
@@ -217,9 +243,9 @@
                 ><span class="mtext">Buses</span>
               </a>
               <ul class="submenu">
-                <li><a href="font-awesome.html">Ver bus</a></li>
-                <li><a href="foundation.html">Añadir bus</a></li>
-                <li><a href="ionicons.html">Eliminar bus</a></li>
+                <li><a href="listadodebuses.php">Ver bus</a></li>
+                <li><a href="añadirbus.php">Añadir bus</a></li>
+                <li><a href="eliminarbus.php">Eliminar bus</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -228,7 +254,7 @@
                 ><span class="mtext">Boletos</span>
               </a>
               <ul class="submenu">
-                <li><a href="highchart.html">Ver boletos</a></li>
+                <li><a href="verboletos.php">Ver boletos</a></li>
               </ul>
             </li>
           </ul>
@@ -244,13 +270,13 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<div class="title">
-								<h4>Modificar Personal</h4>
+								<h4>Añadir Destino</h4>
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="empresa.html">Inicio</a></li>
-									<li class="breadcrumb-item"><a href="destinos.html">Ver Personal</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Modificar Personal</li>
+									<li class="breadcrumb-item"><a href="destinos.html">Destino</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Añadir Destino</li>
 								</ol>
 							</nav>
 						</div>
@@ -261,7 +287,7 @@
 				<div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Datos de la Persona</h4>
+							<h4 class="text-blue h4">Datos del Destino</h4>
 						</div>
 
 					</div>
@@ -269,32 +295,39 @@
 					<div class="form-group row">
 						<label class="col-sm-12 col-md-2 col-form-label">Nombre: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="nombre" class="form-control" value="José" readonly>
+							<input id="nombre" class="form-control" value="Viaje #1" readonly>
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Apellido: </label>
+						<label class="col-sm-12 col-md-2 col-form-label">Hora de Salida: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="apellido" class="form-control" value="Cardona" readonly>
+							<input id="horaSalida" class="form-control" type="date" value="2021-05-17" readonly>
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">ID: </label>
+						<label class="col-sm-12 col-md-2 col-form-label">Hora de Llegada: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="id" class="form-control" value="2021JC01" readonly>
+							<input id="horaLlegada" class="form-control" type="date" value="2021-05-18" readonly>
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">DNI: </label>
+						<label class="col-sm-12 col-md-2 col-form-label">Precio: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="dni" class="form-control" value="07232123" readonly>
+							<input id="precio" class="form-control" value="S/350" readonly>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-sm-12 col-md-2 col-form-label">Destino: </label>
+						<div class="col-sm-12 col-md-10">
+							<input id="destino" class="form-control" value="Mancora" readonly>
 						</div>
 					</div>
           <div>
-            <input class="btn btn-primary" type="submit" value="Modificar">
+            <input class="btn btn-primary" type="submit" value="Añadir">
         </div>
         
 		</div>

@@ -22,8 +22,10 @@ $verempresa = $newEmpresa->ver();
 <!--[if gt IE 8]><!-->	<html class="no-js" lang=""> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BootStrap HTML5 CSS3 Theme</title>
+	<title>Viajeseguro | Destinos</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="vendors/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="vendors/images/apple-touch-icon.png">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -41,6 +43,7 @@ $verempresa = $newEmpresa->ver();
 	<link rel="stylesheet" href="css/color.css">
 	<link rel="stylesheet" href="css/responsive.css">
 	<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
 </head>
 <body>
 	<!--[if lt IE 8]>
@@ -464,11 +467,11 @@ $verempresa = $newEmpresa->ver();
 									foreach ($verempresa as $empresa)
 										{                
 									?>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+									<div class="col-xs-6 col-sm-6 col-md-4 ">
 										<div class="tg-trendingtrip">
 											<figure>
 												<a href="tourbookingdetail.html">
-													<img src="images/tours/img-19.jpg" alt="image destinations">
+													<img src="<?php echo 'images/logos_empresas/logo_'.''.$empresa['nombre'].'.jpg';?>" alt="image destinations">
 													<div class="tg-hover">
 														<span class="tg-stars"><span></span></span>
 														<span class="tg-locationname">----</span>
