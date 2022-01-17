@@ -2,7 +2,7 @@
 
 include_once("src/conexion.php");
 include_once("src/clases/Empresa.php");
-
+include_once("src/clases/Chofer.php");
 
     if(!isset($_SESSION['usuario']) || !$_SESSION['rol']=='empresa') {
         header("Location: login.php");
@@ -12,6 +12,24 @@ $newEmpresa = new Empresa($con);
 $usuario = $_SESSION['usuario'];
 $datos_empresa = $newEmpresa->verdatosempresa($usuario);
 
+$newChofer = new Chofer($con);
+
+if(isset($_POST['registrarchofer'])) {
+  $nombre = $_POST['nombre'];
+  $apellido = $_POST['apellido'];
+  $brebete = $_POST['brebete'];
+ 
+ 
+  
+  $listo = $newChofer->añadirchofer($nombre,$apellido,$brebete,$usuario);
+  
+  if ($listo){
+    echo 'registro';
+    }
+    else{
+      echo 'fallo';
+    }
+}
 
 ?>
 
@@ -284,7 +302,9 @@ $datos_empresa = $newEmpresa->verdatosempresa($usuario);
 					</div>
 				</div>
 				<!-- Default Basic Forms Start -->
-        <div class="pd-20 card-box mb-30">
+        
+        <form class="añadirPersonal.php" method="POST">
+          <div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
 							<h4 class="text-blue h4">Datos de la Persona</h4>
@@ -295,35 +315,31 @@ $datos_empresa = $newEmpresa->verdatosempresa($usuario);
 					<div class="form-group row">
 						<label class="col-sm-12 col-md-2 col-form-label">Nombre: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="nombre" class="form-control" placeholder="José">
+							<input id="nombre" class="form-control" name="nombre" placeholder="José">
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label class="col-sm-12 col-md-2 col-form-label">Apellido: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="apellido" class="form-control" placeholder="Cardona">
+							<input id="apellido" class="form-control" name="apellido" placeholder="Cardona">
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">ID: </label>
+						<label class="col-sm-12 col-md-2 col-form-label">BREBETE: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="id" class="form-control" placeholder="2021JC01">
+							<input id="id" class="form-control" name="brebete" placeholder="2021JC01">
 						</div>
 					</div>
 
-					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">DNI: </label>
-						<div class="col-sm-12 col-md-10">
-							<input id="dni" class="form-control" placeholder="07232123">
-						</div>
-					</div>
+				
           <div>
-            <input class="btn btn-primary" type="submit" value="Añadir">
+            <input class="btn btn-primary" type="submit" name="registrarchofer" value="Añadir">
         </div>
         
 		</div>
+  </form>
     <div class="footer-wrap pd-20 mb-20 card-box">
       ViajeSeguro - Todos los derechos Reservados
     </div>

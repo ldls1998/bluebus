@@ -2,33 +2,35 @@
 
 include_once("src/conexion.php");
 include_once("src/clases/Empresa.php");
-
+include_once("src/clases/Bus.php");
 
     if(!isset($_SESSION['usuario']) || !$_SESSION['rol']=='empresa') {
         header("Location: login.php");
     }
-    $newEmpresa = new Empresa($con);
-    $usuario = $_SESSION['usuario'];
-    $datos_empresa = $newEmpresa->verdatosempresa($usuario);
-    
-    $newBus = new Bus($con);
-    
-    if(isset($_POST['registrardestino'])) {
-      $origen = $_POST['origen'];
-      $destino = $_POST['destino'];
-      $costo = $_POST['costo'];
-      $horario_partida = $_POST['horario_partida'];
-      $horario_llegada = $_POST['horario_llegada'];
-      $lugar_partida = $_POST['partida'];
-      $listo = $newBus->añadirbus($placa,$asientos,$usuario);
-      
-      if ($listo){
-        echo 'registro';
-        }
-        else{
-          echo 'fallo';
-        }
+
+$newEmpresa = new Empresa($con);
+$usuario = $_SESSION['usuario'];
+$datos_empresa = $newEmpresa->verdatosempresa($usuario);
+
+$newBus = new Bus($con);
+
+if(isset($_POST['registrarbus'])) {
+  $placa = $_POST['placa'];
+  $asientos = $_POST['asientos'];
+  
+ 
+ 
+  
+  $listo = $newBus->añadirbus($placa,$asientos,$usuario);
+  
+  if ($listo){
+    echo 'registro';
     }
+    else{
+      echo 'fallo';
+    }
+}
+
 ?>
 
 
@@ -37,7 +39,7 @@ include_once("src/clases/Empresa.php");
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Añadir Destinos</title>
+	<title>Añadir Personal</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -286,13 +288,13 @@ include_once("src/clases/Empresa.php");
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<div class="title">
-								<h4>Añadir Destino</h4>
+								<h4>Añadir Personal</h4>
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="empresa.html">Inicio</a></li>
-									<li class="breadcrumb-item"><a href="destinos.html">Destino</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Añadir Destino</li>
+									<li class="breadcrumb-item"><a href="destinos.html">Personal</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Añadir Personal</li>
 								</ol>
 							</nav>
 						</div>
@@ -300,53 +302,39 @@ include_once("src/clases/Empresa.php");
 					</div>
 				</div>
 				<!-- Default Basic Forms Start -->
-				<div class="pd-20 card-box mb-30">
+        
+        <form class="añadirBus.php" method="POST">
+          <div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Datos del Destino</h4>
+							<h4 class="text-blue h4">Datos de la Persona</h4>
 						</div>
 
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Nombre: </label>
+						<label class="col-sm-12 col-md-2 col-form-label">Placa: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="nombre" class="form-control" value="Viaje #1" readonly>
+							<input  class="form-control" name="placa" placeholder="ASSD8558">
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Hora de Salida: </label>
+						<label class="col-sm-12 col-md-2 col-form-label">Asientos: </label>
 						<div class="col-sm-12 col-md-10">
-							<input id="horaSalida" class="form-control" type="date" value="2021-05-17" readonly>
+							<input type="number" class="form-control" name="asientos" >
 						</div>
 					</div>
 
-					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Hora de Llegada: </label>
-						<div class="col-sm-12 col-md-10">
-							<input id="horaLlegada" class="form-control" type="date" value="2021-05-18" readonly>
-						</div>
-					</div>
+				
 
-					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Precio: </label>
-						<div class="col-sm-12 col-md-10">
-							<input id="precio" class="form-control" value="S/350" readonly>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-12 col-md-2 col-form-label">Destino: </label>
-						<div class="col-sm-12 col-md-10">
-							<input id="destino" class="form-control" value="Mancora" readonly>
-						</div>
-					</div>
+				
           <div>
-            <input class="btn btn-primary" type="submit" value="Añadir">
+            <input class="btn btn-primary" type="submit" name="registrarbus" value="Añadir">
         </div>
         
 		</div>
+  </form>
     <div class="footer-wrap pd-20 mb-20 card-box">
       ViajeSeguro - Todos los derechos Reservados
     </div>

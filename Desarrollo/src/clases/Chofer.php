@@ -14,10 +14,10 @@ class Chofer
     function añadirchofer($nombre,$apellido,$brebete,$empresa)
     {
 
-        $consulta = $this->con->prepare("INSERT INTO chofer (nombre,apellido,N_brebete,empresa) VALUES (:nombre,:apellido,:direccion,:brebete,:empresa)");
-        $consulta->bindParam(":nombre", $empresa);
-        $consulta->bindParam(":apellido", $empresa);
-        $consulta->bindParam(":brebete", $empresa);
+        $consulta = $this->con->prepare("INSERT INTO chofer (nombre,apellido,N_brebete,empresa) VALUES (:nombre,:apellido,:brebete,:empresa)");
+        $consulta->bindParam(":nombre", $nombre);
+        $consulta->bindParam(":apellido", $apellido);
+        $consulta->bindParam(":brebete", $brebete);
         $consulta->bindParam(":empresa", $empresa);
        
         

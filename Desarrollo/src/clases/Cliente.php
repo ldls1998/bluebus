@@ -16,9 +16,9 @@ class Cliente extends Usuario {
 	function Cliente($usuario,$nombre,$apellido,$dni) {
 		parent::__construct($usuario);
 		$this->nombre = $nombre;
-        $this->apellido = $apellidos;
-        $this->dni = $dni;
-        $this->usuario = $edad;
+    $this->apellido = $apellidos;
+    $this->dni = $dni;
+    $this->usuario = $edad;
 	}
 
 	function  setnombre($nombre) {
@@ -86,9 +86,9 @@ class Cliente extends Usuario {
 		
 	}
 	
-	function eliminarCuenta() {
+	function eliminarCuenta($dni) {
 		$consulta = $this->con->prepare("DELETE FROM cliente WHERE dni = :dni ")
-		$consulta->bindParam(":dni",$this->dni);
+		$consulta->bindParam(":dni",$dni);
 		return $consulta->execute();
 	}
 	

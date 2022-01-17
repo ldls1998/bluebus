@@ -65,7 +65,7 @@ class Bus
     function añadirbus($placa,$asientos,$empresa)
     {
        
-        $consulta = $this->con->prepare("INSERT INTO chofer (placa,N_asientos,empresa) VALUES (:placa,:asientos,:empresa)");
+        $consulta = $this->con->prepare("INSERT INTO bus (placa,N_asientos,empresa) VALUES (:placa,:asientos,:empresa)");
         $consulta->bindParam(":placa", $placa);
         $consulta->bindParam(":asientos", $asientos);
         $consulta->bindParam(":empresa", $empresa);
